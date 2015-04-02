@@ -55,20 +55,24 @@ public class DiningPhilosophers
 			
 			int iPhilosophers = DEFAULT_NUMBER_OF_PHILOSOPHERS;
 			
-			Scanner input = new Scanner(System.in);
-			System.out.println("Enter number of Philosophers: ");
-			
-			String philoInput = input.nextLine();
-			input.close();
-			
-			if(philoInput.trim().length() != 0)
+			try
 			{
-				double temp = Double.parseDouble(philoInput);
-				iPhilosophers = (int) temp;
+				String input = argv[0];
+				
+				if(input.trim().length() != 0)
+				{
+					double temp = Double.parseDouble(input);
+					iPhilosophers = (int) temp;
+				}
+			}
+			catch(Exception e)
+			{
+				iPhilosophers = DEFAULT_NUMBER_OF_PHILOSOPHERS;
 			}
 			
+			
 			if(iPhilosophers < 0)
-				System.out.println(iPhilosophers + " is a negative number.");
+				System.out.println(iPhilosophers + " is not is positive decimal integer.");
 			else
 			{
 				// Make the monitor aware of how many philosophers there are
@@ -100,7 +104,7 @@ public class DiningPhilosophers
 	
 				System.out.println("All philosophers have left. System terminates normally.");
 				
-			}
+				}
 		}
 		
 		catch(InterruptedException e)
