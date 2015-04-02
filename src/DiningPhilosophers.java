@@ -61,7 +61,7 @@ public class DiningPhilosophers
 			String philoInput = input.nextLine();
 			input.close();
 			
-			if(philoInput.trim().length() != 0)
+			if(philoInput.length() != 0)
 			{
 				double temp = Double.parseDouble(philoInput);
 				iPhilosophers = (int) temp;
@@ -100,7 +100,7 @@ public class DiningPhilosophers
 	
 				System.out.println("All philosophers have left. System terminates normally.");
 				
-			}
+				}
 		}
 		
 		catch(InterruptedException e)
